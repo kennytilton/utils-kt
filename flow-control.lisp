@@ -131,12 +131,6 @@ See the Lisp Lesser GNU Public License for more details.
          ,yup
          ,nope)))
 
-(defmacro b-if (bindvar boundform yup &optional nope)
-  `(let ((,bindvar ,boundform))
-     (if ,bindvar
-         ,yup
-       ,nope)))
-
 (defmacro b1 ((bindvar boundform) &body body)
   `(let ((,bindvar ,boundform))
      ,@body))

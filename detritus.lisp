@@ -42,7 +42,7 @@ See the Lisp Lesser GNU Public License for more details.
                  (apply 'break args)))
 
 (defun find-after (x l)
-  (bIf (xm (member x l))
+  (bif (xm (member x l))
     (cadr xm)
     (brk "find-after ~a not member of ~a" x l)))
 
