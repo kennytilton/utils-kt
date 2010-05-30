@@ -20,6 +20,15 @@ See the Lisp Lesser GNU Public License for more details.
 
 (in-package :utils-kt)
 
+(defvar *mpstart* (get-internal-real-time))
+
+(export! mprt)
+
+(defun mprt (&rest args)
+  ;(error "mprint")
+  (when (eq :start (car args))
+    (setf *mpstart* (get-internal-real-time) ))
+  (print (list* (- (get-internal-real-time) *mpstart*) args)))
 
 (defvar *count* nil)
 (defvar *counting* nil)
