@@ -147,7 +147,7 @@ See the Lisp Lesser GNU Public License for more details.
           do (print (fifo-pop q)))))
 
 
-#+allegro
+#+allegrosaveit
 (defun line-count (path &optional show-files (max-depth most-positive-fixnum) no-semis (depth 0))
   (cond
    ((excl:file-directory-p path)

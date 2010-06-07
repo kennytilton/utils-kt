@@ -49,11 +49,11 @@ resulting in implementation-specific behavior."
       ,@(when docstring (list docstring)))))
 
 (defun test-setup (&optional drib)
-  #+(and allegro ide (or (not its-alive!) 
-                       debugging-alive!))
-  (progn 
-    (ide.base::find-new-prompt-command
-     (cg.base::find-window :listener-frame)))
+;;;  #+(and allegro ide (or (not its-alive!) 
+;;;                       debugging-alive!))
+;;;  (progn 
+;;;    (ide.base::find-new-prompt-command
+;;;     (cg.base::find-window :listener-frame)))
   (when drib
     (dribble (merge-pathnames 
               (make-pathname :name drib :type "TXT")

@@ -30,7 +30,7 @@ See the Lisp Lesser GNU Public License for more details.
 (defmacro case$ (string-form &rest cases)
   (let ((v$ (gensym))
         (default (or (find 'otherwise cases :key #'car)
-                     (find 'otherwise cases :key #'car))))
+                     (find 't cases :key #'car))))
      (when default
        (setf cases (delete default cases)))
      `(let ((,v$ ,string-form))
