@@ -63,10 +63,10 @@ resulting in implementation-specific behavior."
 (export! project-path)
 (defun project-path ()
   #+(and allegro ide (not its-alive!))
-  (excl:path-pathname (ide.base::project-file ide.base:*current-project*)))
+  (excl:path-pathname (ide::project-file ide.base:*current-project*)))
 
 #+test
-(test-setup)
+(project-path)
 
 (defun test-prep (&optional drib)
   (test-setup drib))
