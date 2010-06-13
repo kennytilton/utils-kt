@@ -135,11 +135,20 @@ See the Lisp Lesser GNU Public License for more details.
   `(let ((,bindvar ,boundform))
      ,@body))
 
+(defmacro dsb (b f &body bod)
+  `(destructuring-bind ,b ,f
+     ,@bod))
+
+(defmacro mvb (b f &body bod)
+  `(multiple-value-bind ,b ,f
+     ,@bod))
+
+
 (defmacro maptimes ((nvar count) &body body)
   `(loop for ,nvar below ,count
        collecting (progn ,@body)))
 
-(export! b1 maphash* hashtable-assoc -1?1 -1?1 prime? b-if b-when)
+(export! b1 maphash* hashtable-assoc -1?1 -1?1 prime? b-if b-when dsb mvb)
 
 (defun maphash* (f h)
   (loop for k being the hash-keys of h
