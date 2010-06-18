@@ -20,7 +20,7 @@ See the Lisp Lesser GNU Public License for more details.
 (in-package :utils-kt)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (export '(eval-now! export! assocd rassoca class-proto brk)))
+  (export '(eval-now! export! assocd rassoca class-proto brk eo)))
 
 (defmacro wdbg (&body body)
   `(let ((*dbg* t))
@@ -28,6 +28,9 @@ See the Lisp Lesser GNU Public License for more details.
 
 (defun assocd (x y) (cdr (assoc x y)))
 (defun rassoca (x y) (car (assoc x y)))
+
+(defmacro eo (x y)
+  `(if (zerop (random 2)) ,x ,y))
 
 (defun class-proto (c)
   (let ((cc (find-class c)))
