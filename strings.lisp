@@ -35,9 +35,11 @@ See the Lisp Lesser GNU Public License for more details.
        (setf cases (delete default cases)))
      `(let ((,v$ ,string-form))
          (cond
-          ,@(mapcar (lambda (case-forms)
-                        `((string-equal ,v$ ,(car case-forms)) ,@(rest case-forms)))
-                    cases)
+          ,@(loop for (case . forms) in cases
+                  collect `((find ,v$ (list ,@(if (consp case)
+                                         case
+                                        (list case))) :test 'string-equal) ,@forms))
+                
           (t ,@(or (cdr default) `(nil)))))))
 
 (defmacro case-string-equal (string-form &rest cases)
