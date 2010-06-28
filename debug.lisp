@@ -22,13 +22,14 @@ See the Lisp Lesser GNU Public License for more details.
 
 (defvar *mpstart* (get-internal-real-time))
 
-(export! mprt)
+(export! mpt)
 
-(defun mprt (&rest args)
+(defun mpt (&rest args)
   ;(error "mprint")
-  (when (eq :start (car args))
-    (setf *mpstart* (get-internal-real-time) ))
-  (print (list* (- (get-internal-real-time) *mpstart*) args)))
+  (cz:without-c-dependency
+      (when (eq :start (car args))
+        (setf *mpstart* (get-internal-real-time) ))
+    (print (list* (- (get-internal-real-time) *mpstart*) args))))
 
 (defvar *count* nil)
 (defvar *counting* nil)

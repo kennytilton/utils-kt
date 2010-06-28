@@ -58,8 +58,10 @@ See the Lisp Lesser GNU Public License for more details.
         finally (brk "find-before ~a not member of ~a" x l)))
 
 (defun list-insert-after (list after new )
+  (assert (member after list)()"list-insert-after> after arg ~a not a member of list ~a" after list)
   (let* ((new-list (copy-list list))
          (m (member after new-list)))
+    (assert m)
     (rplacd m (cons new (cdr m)))
     new-list))
 
