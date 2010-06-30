@@ -26,10 +26,12 @@ See the Lisp Lesser GNU Public License for more details.
 
 (defun mpt (&rest args)
   ;(error "mprint")
-  (cz:without-c-dependency
-      (when (eq :start (car args))
-        (setf *mpstart* (get-internal-real-time) ))
-    (print (list* (- (get-internal-real-time) *mpstart*) args))))
+  (when (eq :start (car args))
+    (setf *mpstart* (get-internal-real-time) ))
+  (print (list* (- (get-internal-real-time) *mpstart*) args)))
+
+#+test
+(mpt :one 2 "3")
 
 (defvar *count* nil)
 (defvar *counting* nil)
