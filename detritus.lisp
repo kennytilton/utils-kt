@@ -20,7 +20,10 @@ See the Lisp Lesser GNU Public License for more details.
 (in-package :utils-kt)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (export '(eval-now! export! assocd rassoca class-proto brk eo)))
+  (export '(eval-now! export! assocd rassoca class-proto brk eo subseq-ex)))
+
+(defun subseq-ex (seq start end)
+  (subseq seq start (min end (length seq))))
 
 (defmacro wdbg (&body body)
   `(let ((*dbg* t))
