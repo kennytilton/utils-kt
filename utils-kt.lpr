@@ -1,4 +1,4 @@
-;; -*- lisp-version: "8.1 [Windows] (Jan 30, 2009 11:49)"; cg: "1.103.2.10"; -*-
+;; -*- lisp-version: "8.2 [64-bit Windows] (Jan 25, 2010 15:11)"; cg: "1.134"; -*-
 
 (in-package :cg-user)
 
@@ -14,6 +14,7 @@
                  (make-instance 'module :name "split-sequence.lisp"))
   :projects nil
   :libraries nil
+  :editable-files (list "utils-kt.asd")
   :distributed-files nil
   :internally-loaded-files nil
   :project-package-name :common-lisp
@@ -34,7 +35,10 @@
   :new-space-size 6144
   :runtime-build-option :standard
   :build-number 0
+  :run-with-console nil
+  :project-file-version-info nil
   :on-initialization 'default-init-function
+  :default-error-handler-for-delivery 'report-unexpected-error-and-exit
   :on-restart 'do-default-restart)
 
 ;; End of Project Definition

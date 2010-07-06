@@ -16,11 +16,12 @@
   :licence "MIT Style"
   :description "Kenny's Utilities"
   :long-description "Low-level utilities used by all of Kenny's projects"
+  :serial t
   :components ((:file "defpackage")
                (:file "core" :depends-on ("defpackage"))
                (:file "debug" :depends-on ("core"))
                (:file "flow-control" :depends-on ("core" "debug"))
-               (:file "detritus" :depends-on ("core" "debug"))
+               (:file "detritus" :depends-on ("core" "debug" "flow-control"))
                (:file "strings" :depends-on ("core" "debug"))
                (:file "datetime" :depends-on ("core" "debug"))
                (:file "split-sequence" :depends-on ("core" "debug"))))
