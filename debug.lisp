@@ -78,7 +78,7 @@ See the Lisp Lesser GNU Public License for more details.
 (export! count-it!)
 (defmacro count-it! (&rest keys)
   (declare (ignorable keys))
-  #+(and its-alive! (not debugging-alive!))
+  #+(and its-alive! (not debugging-alive!)) 
   `(progn)
   #-(and its-alive! (not debugging-alive!))
   `(when (car *counting*)
