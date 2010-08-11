@@ -65,8 +65,11 @@ See the Lisp Lesser GNU Public License for more details.
   (when announce (format t "~&count-clear > ~a" msg))
   (setf *count* nil))
 
+(defparameter *stopped* (lambda () *stop*))
+
 (defun stop-check (&optional (where :unspecified))
-  (when *stop* (break "utils-kt *stopped* at ~a" where)))
+  (when (funcall *stopped*)
+    (break "utils-kt *stopped* at ~a" where)))
 
 (defmacro count-it (&rest keys)
   (declare (ignorable keys))
