@@ -102,7 +102,6 @@ See the Lisp Lesser GNU Public License for more details.
       (if (= 12 hours) hours (mod hours 12))  ; JP 010911 since (mod 12 12) = 0, treat 12 as a special case.
       minutes (if (>= hours 12) "PM" "AM"))))
 
-
 (defun mdyy-yymd (d)
   (assert (eql 8 (length d)))
   (conc$ (right$ d 4) (left$ d 4)))
