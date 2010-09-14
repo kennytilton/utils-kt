@@ -17,7 +17,8 @@
   :description "Kenny's Utilities"
   :long-description "Low-level utilities used by all of Kenny's projects"
   :serial t
-  :components ((:file "defpackage")
+  :components ((:file "features")
+               (:file "defpackage" :depends-on ("features"))
                (:file "core" :depends-on ("defpackage"))
                (:file "debug" :depends-on ("core"))
                (:file "flow-control" :depends-on ("core" "debug"))
