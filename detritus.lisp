@@ -40,8 +40,7 @@ See the Lisp Lesser GNU Public License for more details.
     ;; all this was conditional on c being found, but if it isn't the find-class errors as coded so
     ;; let's take out the meaningless condition and see what happens
     (finalize-inheritance cc)
-    #-sbcl(mop::class-prototype cc)
-    #+sbcl(sb-mop:class-prototype cc)))
+    (class-prototype cc)))
 
 (defun brk (&rest args)
   #+its-alive! (apply 'error args)
