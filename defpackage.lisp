@@ -36,8 +36,8 @@
 (defpackage :utils-kt
   (:nicknames #:ukt)
   (:use #:common-lisp
-    #+(or allegro lispworks clisp) #:clos
-    #+cmu  #:mop
+    #+(or allegro lispworks clisp scl ecl) #:clos
+    #+(or cmu abcl)  #:mop
     #+sbcl #:sb-mop
     #+openmcl-partial-mop #:openmcl-mop
     #+(and mcl (not openmcl-partial-mop))  #:ccl)
