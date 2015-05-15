@@ -6,7 +6,7 @@
 ;;;(operate 'load-op :asdf-aclproj)
 ;;;(use-package :asdf-aclproj)
 
-#-(or allegro lispworks cmu mcl clisp cormanlisp sbcl scl ecl abcl)
+#-(or allegro lispworks cmu mcl ccl clisp cormanlisp sbcl scl ecl abcl)
 (error "Your implementation, ~S, is not supported" (lisp-implementation-type))
 
 (asdf:defsystem :utils-kt
